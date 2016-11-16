@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<stetic-interface>
+  <configuration>
+    <images-root-path>..</images-root-path>
+    <target-gtk-version>2.12</target-gtk-version>
+  </configuration>
+  <import>
+    <widget-library name="../bin/Debug/tort.exe" internal="true" />
+    <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+  </import>
+  <widget class="Gtk.Window" id="MainWindow" design-size="642 846">
+    <property name="MemberName" />
+    <property name="WidthRequest">600</property>
+    <property name="HeightRequest">500</property>
+    <property name="Title" translatable="yes">MainWindow</property>
+    <property name="WindowPosition">CenterOnParent</property>
+    <property name="Resizable">False</property>
+    <signal name="DeleteEvent" handler="OnDeleteEvent" />
+    <child>
+      <widget class="Gtk.Fixed" id="fixed2">
+        <property name="MemberName" />
+        <property name="HasWindow">False</property>
+        <child>
+          <widget class="Gtk.Button" id="conuctionBtn">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Type">TextOnly</property>
+            <property name="Label" translatable="yes">Кон'юнкція(∧)</property>
+            <property name="UseUnderline">True</property>
+          </widget>
+          <packing>
+            <property name="X">5</property>
+            <property name="Y">95</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Button" id="disunctionBtn">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Type">TextOnly</property>
+            <property name="Label" translatable="yes">Діз'юнкція (∨)</property>
+            <property name="UseUnderline">True</property>
+          </widget>
+          <packing>
+            <property name="X">100</property>
+            <property name="Y">95</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Button" id="euqalseBtn">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Type">TextOnly</property>
+            <property name="Label" translatable="yes">Еквівалнтність(~)</property>
+            <property name="UseUnderline">True</property>
+          </widget>
+          <packing>
+            <property name="X">291</property>
+            <property name="Y">95</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Button" id="ImplekationBtn">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Type">TextOnly</property>
+            <property name="Label" translatable="yes">Імплікація(→ )</property>
+            <property name="UseUnderline">True</property>
+          </widget>
+          <packing>
+            <property name="X">195</property>
+            <property name="Y">95</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Button" id="unBtn">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Type">TextOnly</property>
+            <property name="Label" translatable="yes">Заперечення(¬)</property>
+            <property name="UseUnderline">True</property>
+          </widget>
+          <packing>
+            <property name="X">410</property>
+            <property name="Y">95</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Entry" id="inputField">
+            <property name="MemberName" />
+            <property name="WidthRequest">590</property>
+            <property name="CanFocus">True</property>
+            <property name="Text" translatable="yes">A∨¬(A~B)</property>
+            <property name="IsEditable">True</property>
+            <property name="InvisibleChar">●</property>
+          </widget>
+          <packing>
+            <property name="X">5</property>
+            <property name="Y">5</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Button" id="calculate">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Type">TextOnly</property>
+            <property name="Label" translatable="yes">Розрахувати</property>
+            <property name="UseUnderline">True</property>
+          </widget>
+          <packing>
+            <property name="X">515</property>
+            <property name="Y">95</property>
+          </packing>
+        </child>
+        <child>
+          <placeholder />
+        </child>
+        <child>
+          <placeholder />
+        </child>
+        <child>
+          <placeholder />
+        </child>
+        <child>
+          <placeholder />
+        </child>
+        <child>
+          <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
+            <property name="MemberName" />
+            <property name="WidthRequest">590</property>
+            <property name="HeightRequest">300</property>
+            <property name="ShadowType">In</property>
+            <child>
+              <widget class="Gtk.TreeView" id="resultTree">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="ShowScrollbars">True</property>
+              </widget>
+            </child>
+          </widget>
+          <packing>
+            <property name="X">5</property>
+            <property name="Y">125</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Button" id="dnfByExpression">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Type">TextOnly</property>
+            <property name="Label" translatable="yes">Обчислити ДНФ по формулі</property>
+            <property name="UseUnderline">True</property>
+          </widget>
+          <packing>
+            <property name="X">5</property>
+            <property name="Y">425</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Button" id="dnfFromFile">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Type">TextOnly</property>
+            <property name="Label" translatable="yes">Обчислити ДНФ з файлу</property>
+            <property name="UseUnderline">True</property>
+          </widget>
+          <packing>
+            <property name="X">185</property>
+            <property name="Y">425</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Button" id="KNFFromExpression">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Type">TextOnly</property>
+            <property name="Label" translatable="yes">КНФ по формулі</property>
+            <property name="UseUnderline">True</property>
+          </widget>
+          <packing>
+            <property name="X">345</property>
+            <property name="Y">425</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Button" id="KNFFromFile">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Type">TextOnly</property>
+            <property name="Label" translatable="yes">КНФ з файлу</property>
+            <property name="UseUnderline">True</property>
+          </widget>
+          <packing>
+            <property name="X">455</property>
+            <property name="Y">425</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+</stetic-interface>

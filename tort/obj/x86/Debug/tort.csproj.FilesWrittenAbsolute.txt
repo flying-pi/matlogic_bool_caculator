@@ -1,0 +1,8 @@
+/Users/yurabraiko/Projects/tort/tort/obj/x86/Debug/.NETFramework,Version=v4.6.1.AssemblyAttribute.cs
+/Users/yurabraiko/Projects/tort/tort/obj/x86/Debug/tort.gtk-gui.gui.stetic
+/Users/yurabraiko/Projects/tort/tort/bin/Debug/tort.exe.mdb
+/Users/yurabraiko/Projects/tort/tort/bin/Debug/tort.exe
+/Users/yurabraiko/Projects/tort/tort/obj/x86/Debug/tort.exe
+/Users/yurabraiko/Projects/tort/tort/obj/x86/Debug/tort.exe.mdb
+/Users/yurabraiko/Projects/tort/tort/bin/Debug/nunit.framework.dll
+/Users/yurabraiko/Projects/tort/tort/bin/Debug/System.Collections.Immutable.dll

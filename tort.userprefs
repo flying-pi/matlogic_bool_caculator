@@ -4,6 +4,20 @@
       <File FileName="tort/main/MainWindow.cs" Line="263" Column="39" />
       <File FileName="tort/main/Expresion.cs" Line="202" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>method.Invoke(predicatObject, new object[] { })</Value>
+          <Value>(IEnumerable&lt;object&gt;)method.Invoke(predicatObject, new object[] { })</Value>
+          <Value>methodResult as IEnumerable&lt;int&gt;</Value>
+          <Value>(IEnumerable&lt;object&gt;)methodResult</Value>
+          <Value>methodResult</Value>
+          <Value>(IEnumerable&lt;object&gt;)methodResult</Value>
+          <Value>cvantorsList[0].Key == operations.eUniversal</Value>
+          <Value>cvantorsList[0].Key</Value>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

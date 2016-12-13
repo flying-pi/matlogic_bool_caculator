@@ -39,7 +39,7 @@ namespace Tort
 
 			int countBrackets = 0;
 			string currentStr;
-			for (int i = str.Length - 1; i >= 0; i--)
+			for (int i = 0; i <str.Length ; i++)
 			{
 				currentStr = str[i].ToString();
 				if (currentStr == ")")
@@ -86,7 +86,7 @@ namespace Tort
 					splitExpressionBetweenChild(str, i);
 					break;
 				}
-				if (i == 0 && currentStr == Const.unnSymbol)
+				if (i == str.Length-1 && currentStr == Const.unnSymbol)
 				{
 					while (str.StartsWith(Const.unnSymbol))
 					{

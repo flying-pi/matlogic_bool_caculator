@@ -143,7 +143,7 @@ public partial class MainWindow : Gtk.Window
 		showFormResult(FormFactory.getNormalForm(ex, eFormType.KNF), "КНФ");
 	}
 
-	private void showFormResult(BaseNormalForm normalForm,string title)
+	private void showFormResult(BaseNormalForm normalForm, string title)
 	{
 		string message;
 		MessageType type = MessageType.Info;
@@ -161,7 +161,7 @@ public partial class MainWindow : Gtk.Window
 			type = MessageType.Error;
 			message = "Тотожно хибний вираз";
 		}
-		MessageDialog md = new MessageDialog(null, DialogFlags.Modal,type , ButtonsType.Ok,
+		MessageDialog md = new MessageDialog(null, DialogFlags.Modal, type, ButtonsType.Ok,
 											 message);
 		md.Title = title;
 		md.Run();
@@ -178,7 +178,7 @@ public partial class MainWindow : Gtk.Window
 			ex[i] = new Expresion(inputLines[i]);
 			ex[i].Name = "F" + i.ToString();
 		}
-		HashSet < string > vars = new HashSet<string>();
+		HashSet<string> vars = new HashSet<string>();
 		foreach (var e in ex)
 			vars.UnionWith(e.getUnicVar());
 		while (resultTree.Columns.Length > 0)
@@ -193,10 +193,10 @@ public partial class MainWindow : Gtk.Window
 			newColumn.Title = s;
 			resultTree.AppendColumn(newColumn);
 		}
-		for (int i = 0; i < ex.Length;i++)
+		for (int i = 0; i < ex.Length; i++)
 		{
 			Gtk.TreeViewColumn resultColumn = new Gtk.TreeViewColumn();
-			resultColumn.Title = "F"+ i.ToString() + " = " + ex[i].ToString();
+			resultColumn.Title = "F" + i.ToString() + " = " + ex[i].ToString();
 			resultTree.AppendColumn(resultColumn);
 		}
 		ListStore data = new ListStore(types);
@@ -231,35 +231,54 @@ public partial class MainWindow : Gtk.Window
 		if (ex.Length < 2) return;
 		List<List<Expresion>> result = GetCombinations(ex);
 		List<Expresion> exCombination = new List<Expresion>();
-		foreach (var currentCombination in result)
+		int countRow = 0;
+		HashSet<String> vars = new HashSet<String>();
+		foreach (var v in ex)
+			foreach (var s in v.getUnicVar())
+				vars.Add(s);
+		countRow = (int)Math.Pow(2, vars.Count);
+		List<bool> input;
+		foreach (List<Expresion> currentCombination in result)
 		{
-			Expresion newExpression = currentCombination[0];
-			for (int i = 1; i < currentCombination.Count; i++)
+			bool isImplication = true;
+			bool firstF, secondF;
+			for (int i = 1; i < currentCombination.Count && isImplication; i++)
 			{
-				newExpression = new Expresion(newExpression, currentCombination[i], Const.implicationSymbol);
+				for (int a = 0; a < countRow; a++)
+				{
+					input = numToBinary(a, vars.Count);
+					firstF = currentCombination[i - 1].calculate(mergeInputWithName(vars, input));
+					secondF = currentCombination[i].calculate(mergeInputWithName(vars, input));
+					Console.WriteLine(currentCombination[i - 1].ToString() +" :: "+ currentCombination[i].ToString() +" ==> "
+					                  + firstF.ToString() + " :: " + secondF.ToString());
+					if (firstF && (!secondF))
+					{
+						isImplication = false;
+						break;
+					}
+				}
 			}
-			exCombination.Add(newExpression);
-		}
-		for (int i = 0; i < exCombination.Count; i++)
-			if (!exCombination[i].isTavtolohyya())
+			if (isImplication)
 			{
-				result.RemoveAt(i);
-				exCombination.RemoveAt(i);
-				i--;
+				Expresion newExpression = currentCombination[0];
+				for (int i = 1; i < currentCombination.Count; i++)
+				{
+					newExpression = new Expresion(newExpression, currentCombination[i], Const.implicationSymbol);
+				}
+				exCombination.Add(newExpression);
 			}
 
+		}
 
 		string message = "";
-		foreach (var i in result)
+		foreach (var i in exCombination)
 		{
-			string buf = "";
-			for (int j = 0; j < i.Count - 1; j++)
-				buf += (i[j].Name + Const.implicationSymbol);
-			buf += i[i.Count - 1].Name;
-			message += buf;
+			message += i.ToString();
 			message += "\n";
 
 		}
+		if (message.Length < 2)
+			message = "не вдалось знайти жодної послідовності формул,  так аби попередня і наступня утворювали б імплікацію";
 		MessageType type = MessageType.Info;
 		MessageDialog md = new MessageDialog(null, DialogFlags.NoSeparator, type, ButtonsType.Ok,
 											 message);

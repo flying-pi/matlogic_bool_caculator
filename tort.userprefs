@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{D548ADBB-B0D4-41BD-8E57-9C8ABC0C5099}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="tort Status">
+  <MonoDevelop.Ide.Workbench ActiveDocument="tort/main/NormalForm/BaseNormalForm.cs">
     <Files>
       <File FileName="tort/main/MainWindow.cs" Line="273" Column="23" />
       <File FileName="tort/main/Expresion.cs" Line="17" Column="27" />
-      <File FileName="tort Status" />
+      <File FileName="tort/main/NormalForm/BaseNormalForm.cs" Line="13" Column="31" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
